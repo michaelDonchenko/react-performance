@@ -5,4 +5,4 @@ const ListItem = ({ text }) => {
   return <div>{text}</div>
 }
 
-export const MemoizedListItem = React.memo(ListItem)
+export const MemoizedListItem = ListItem

@@ -7,8 +7,6 @@ const Parent = () => {
   const [data] = useState(['item1', 'item2', 'item3', 'item4'])
   const [number] = useState(1000000000)
 
-  const onClick = useCallback(() => setCounter((counter) => counter + 1), [])
-
   const heavyFunction = (number) => {
     console.log('Render of the heavy function!')
     let result = 0
@@ -19,8 +17,17 @@ const Parent = () => {
     return result
   }
 
-  const memoizedResult = useMemo(() => heavyFunction(number), [number])
-  // const memoizedResult = heavyFunction(number)
+  //regular function
+  const onClick = () => setCounter((counter) => counter + 1)
+
+  //memoized function
+  // const onClick = useCallback(() => setCounter((counter) => counter + 1), [])
+
+  //regular result
+  const memoizedResult = heavyFunction(number)
+
+  // memoized result
+  // const memoizedResult = useMemo(() => heavyFunction(number), [number])
 
   return (
     <div>
