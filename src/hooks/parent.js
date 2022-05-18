@@ -17,17 +17,9 @@ const Parent = () => {
     return result
   }
 
-  //regular function
-  const onClick = () => setCounter((counter) => counter + 1)
+  const onClick = useCallback(() => setCounter((counter) => counter + 1), [])
 
-  //memoized function
-  // const onClick = useCallback(() => setCounter((counter) => counter + 1), [])
-
-  //regular result
-  const memoizedResult = heavyFunction(number)
-
-  // memoized result
-  // const memoizedResult = useMemo(() => heavyFunction(number), [number])
+  const memoizedResult = useMemo(() => heavyFunction(number), [number])
 
   return (
     <div>

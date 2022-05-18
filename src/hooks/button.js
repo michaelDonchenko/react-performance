@@ -5,4 +5,4 @@ const Button = ({ onClick }) => {
   return <button onClick={onClick}>Click on me</button>
 }
 
-export const MemoizedButton = Button
+export const MemoizedButton = React.memo(Button)
